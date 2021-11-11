@@ -67,6 +67,23 @@ create table cidade(
 )
 
 -- Adicione um país, um estado e uma cidade. Execute os DDL e DML em uma mesma transação 
+begin transaction; 
+	INSERT INTO public.pais
+	(nome, sigla)
+	VALUES('Brasil', 'BR');
+    commit;
+    
+	INSERT INTO public.estado
+	(nome, sigla, pais_id)
+	VALUES('Minas Gerais', 'MG', 1);
+    commit;
+   
+    INSERT INTO public.cidade
+	(nome, sigla, estado_id)
+	VALUES('Juiz de Fora', 'JF', 1);
+    commit;
+ end;
+
 
 
 
